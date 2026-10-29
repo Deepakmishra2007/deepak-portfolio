@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgFraud" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#141a29"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="50%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="goldChip" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <filter id="cardGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <pattern id="fraudGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgFraud)"/>
+  <rect width="800" height="450" fill="url(#fraudGrid)"/>
+
+  <!-- Ambient Glow Orbs -->
+  <circle cx="600" cy="140" r="150" fill="#38bdf8" opacity="0.08" filter="url(#cardGlow)"/>
+  <circle cx="200" cy="320" r="160" fill="#6366f1" opacity="0.08" filter="url(#cardGlow)"/>
+
+  <!-- Left: Credit Card Render -->
+  <g transform="translate(100, 90)">
+    <!-- Shadow & Card Base -->
+    <rect x="0" y="0" width="320" height="195" rx="16" fill="url(#cardGrad)" stroke="rgba(99, 102, 241, 0.4)" stroke-width="1.5" filter="url(#cardGlow)"/>
+    
+    <!-- Decorative Wave Patterns on Card -->
+    <path d="M 0 110 Q 120 70 220 120 T 320 90 L 320 195 L 0 195 Z" fill="rgba(56, 189, 248, 0.08)"/>
+    <path d="M 0 140 Q 100 110 200 150 T 320 130 L 320 195 L 0 195 Z" fill="rgba(168, 85, 247, 0.08)"/>
+
+    <!-- EMV Chip -->
+    <rect x="35" y="45" width="45" height="35" rx="6" fill="url(#goldChip)" stroke="#b45309" stroke-width="1"/>
+    <line x1="35" y1="62" x2="80" y2="62" stroke="#78350f" stroke-width="0.8"/>
+    <line x1="57" y1="45" x2="57" y2="80" stroke="#78350f" stroke-width="0.8"/>
+    
+    <!-- Contactless Icon -->
+    <path d="M 95 55 A 10 10 0 0 1 95 72" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+    <path d="M 100 50 A 16 16 0 0 1 100 77" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+
+    <!-- Card Details -->
+    <text x="35" y="125" font-family="'JetBrains Mono', monospace" font-size="16" letter-spacing="3" fill="#f8fafc">••••  ••••  ••••  4092</text>
+    <text x="35" y="155" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="1">CARDHOLDER</text>
+    <text x="35" y="172" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">DEEPAK MISHRA</text>
+
+    <!-- Visa/Mastercard Circle Brand -->
+    <circle cx="265" cy="155" r="15" fill="#ef4444" opacity="0.85"/>
+    <circle cx="282" cy="155" r="15" fill="#f59e0b" opacity="0.85"/>
+  </g>
+
+  <!-- Right: ML Anomaly Detection Radar & Analytics Display -->
+  <g transform="translate(450, 75)">
+    <!-- Outer Container -->
+    <rect width="280" height="295" rx="18" fill="rgba(15, 23, 42, 0.9)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.5"/>
+
+    <!-- Title Header -->
+    <text x="25" y="35" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#f8fafc">Transaction Risk Analysis</text>
+    <circle cx="250" cy="30" r="5" fill="#10b981"/>
+
+    <!-- Transaction Data Graph Visualizer -->
+    <g transform="translate(25, 55)">
+      <rect width="230" height="110" rx="8" fill="rgba(30, 41, 59, 0.5)" stroke="rgba(255, 255, 255, 0.06)"/>
+      <!-- Grid lines -->
+      <line x1="15" y1="30" x2="215" y2="30" stroke="rgba(255, 255, 255, 0.05)"/>
+      <line x1="15" y1="60" x2="215" y2="60" stroke="rgba(255, 255, 255, 0.05)"/>
+      <line x1="15" y1="90" x2="215" y2="90" stroke="rgba(255, 255, 255, 0.05)"/>
+
+      <!-- Normal transaction line -->
+      <path d="M 20 85 Q 50 80, 80 82 T 140 78 T 170 84 T 210 80" fill="none" stroke="#38bdf8" stroke-width="2"/>
+      
+      <!-- Anomaly Spike (Fraudulent) -->
+      <path d="M 120 80 L 140 22 L 155 78" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+      <circle cx="140" cy="22" r="5" fill="#ef4444" filter="url(#cardGlow)"/>
+      
+      <rect x="110" y="4" width="60" height="16" rx="4" fill="#ef4444"/>
+      <text x="140" y="15" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">ANOMALY</text>
+    </g>
+
+    <!-- Classification Details -->
+    <g transform="translate(25, 185)">
+      <rect width="230" height="42" rx="8" fill="rgba(239, 68, 68, 0.12)" stroke="rgba(239, 68, 68, 0.3)"/>
+      <text x="15" y="25" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#fca5a5">Pattern: High-Risk Outlier</text>
+    </g>
+
+    <g transform="translate(25, 237)">
+      <rect width="230" height="42" rx="8" fill="rgba(16, 185, 129, 0.12)" stroke="rgba(16, 185, 129, 0.3)"/>
+      <text x="15" y="25" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#6ee7b7">Pattern: Normal Behavior</text>
+    </g>
+  </g>
+
+  <!-- Bottom Badges on Left -->
+  <g transform="translate(100, 315)">
+    <rect x="0" y="0" width="95" height="30" rx="15" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.3)"/>
+    <text x="47" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#38bdf8" text-anchor="middle">Python</text>
+
+    <rect x="105" y="0" width="135" height="30" rx="15" fill="rgba(99, 102, 241, 0.12)" stroke="rgba(99, 102, 241, 0.3)"/>
+    <text x="172" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#818cf8" text-anchor="middle">Machine Learning</text>
+
+    <rect x="250" y="0" width="115" height="30" rx="15" fill="rgba(168, 85, 247, 0.12)" stroke="rgba(168, 85, 247, 0.3)"/>
+    <text x="307" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#c084fc" text-anchor="middle">Data Analysis</text>
+  </g>
+</svg>

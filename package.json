@@ -1,0 +1,19 @@
+{
+  "name": "deepak-mishra-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website of Deepak Mishra - B.Tech CSE (AIML) Student",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js",
+    "py": "python -m http.server 5173"
+  },
+  "keywords": [
+    "portfolio",
+    "deepak-mishra",
+    "data-science",
+    "machine-learning"
+  ],
+  "author": "Deepak Mishra",
+  "license": "MIT"
+}

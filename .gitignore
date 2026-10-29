@@ -1,0 +1,5 @@
+# Local / build scratch folders
+public/
+node_modules/
+.DS_Store
+Thumbs.db
